@@ -14,7 +14,12 @@ Generate generated-code binding:
 Änderungen:
 - Klasse generated_code_h_8 -> public
 
+Die libbluez_binding.so wird generiert von dem bluez_binding-Projekt (https://github.com/ThorbenSengpiel/bluez_binding) und muss unter resources platziert werden.
 
+Problem:
+Beim Aufruf einer Methode auf ein gefundenes Device Objekt tritt ein Segmentation-Fault auf. Die Ursache für diesen Segmentation-Fault
+ist aktuell unbekannt. Durch printf-Debugging konnte der Fehler auf den Aufruf von
 
+    const gchar* ret = iface->get_name(object); in der Methode device1_get_name (Device1 *object) in der angepassten generated-code.c
 
 
